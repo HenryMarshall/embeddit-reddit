@@ -18,7 +18,8 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'connect-src': '*'
+      'connect-src': '*',
+      'image-src': "'self', http://www.redditstatic.com"
     }
   };
 
