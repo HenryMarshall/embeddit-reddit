@@ -13,3 +13,7 @@
   <button class="downVote">Down</button>
   <button class="reply">Reply</button>
 </footer>
+
+{{#if comment.data.replies}}
+  {{sibling-comments comments=comment.data.replies.data.children}}
+{{/if}}
