@@ -3,7 +3,7 @@
 <ul>
 
 {{#each topLevelComments as |comment|}}
-  <li>{{comment.data.body}}</li>
+  {{x-comment comment=comment}}
 {{/each}}
 
 </ul>

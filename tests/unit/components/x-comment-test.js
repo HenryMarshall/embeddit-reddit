@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('child-comments', 'Unit | Component | child comments', {
+moduleForComponent('x-comment', 'Unit | Component | x comment', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar'],
   unit: true

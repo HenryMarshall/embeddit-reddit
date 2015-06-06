@@ -1,0 +1,15 @@
+<header>
+  <a class="username" href="#">{{comment.data.author}}</a>
+  <span class="timestamp">{{comment.data.created_utc}}</span>
+</header>
+
+<p class="body">
+  {{comment.data.body}}
+</p>
+
+<footer>
+  <button class="upVote">Up</button>
+  <span class="score">{{comment.data.score}}</span>
+  <button class="downVote">Down</button>
+  <button class="reply">Reply</button>
+</footer>
