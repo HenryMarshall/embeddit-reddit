@@ -1,5 +1,11 @@
 <h2>Comments</h2>
+
 <ul>
-  <li>Comment</li>
+
+{{#each topLevelComments as |comment|}}
+  <li>{{comment.data.body}}</li>
+{{/each}}
+
 </ul>
+
 {{outlet}}

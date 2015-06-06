@@ -14,5 +14,11 @@ export default Ember.Controller.extend({
       }
     });
     this.set('reddit', reddit);
+
+    var _this = this;
+    reddit('comments/2aa5tl').get().then(function(response) {
+      _this.set('topLevelComments', response[1].data.children);
+    });
+
   },
 });
