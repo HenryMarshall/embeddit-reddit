@@ -1,11 +1,5 @@
 <h2>Comments</h2>
 
-<ul>
-
-{{#each topLevelComments as |comment|}}
-  {{x-comment comment=comment}}
-{{/each}}
-
-</ul>
+{{sibling-comments comments=topLevelComments}}
 
 {{outlet}}
