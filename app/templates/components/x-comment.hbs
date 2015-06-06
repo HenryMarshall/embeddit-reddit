@@ -1,18 +1,20 @@
-<header>
-  <a class="username" href="#">{{comment.data.author}}</a>
-  <span class="timestamp">{{comment.data.created_utc}}</span>
-</header>
+<div class="comment-content">
+  <header>
+    <a class="username" href="#">{{comment.data.author}}</a>
+    <span class="timestamp">{{comment.data.created_utc}}</span>
+  </header>
 
-<p class="body">
-  {{comment.data.body}}
-</p>
+  <p class="body">
+    {{comment.data.body}}
+  </p>
 
-<footer>
-  <button class="vote up"></button>
-  <span class="score">{{comment.data.score}}</span>
-  <button class="vote down"></button>
-  <button class="reply">Reply</button>
-</footer>
+  <footer>
+    <button class="vote up"></button>
+    <span class="score">{{comment.data.score}}</span>
+    <button class="vote down"></button>
+    <button class="reply">Reply</button>
+  </footer>
+</div>
 
 {{#if comment.data.replies}}
   {{sibling-comments comments=comment.data.replies.data.children}}
