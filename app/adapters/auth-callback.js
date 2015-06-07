@@ -1,5 +1,5 @@
 import ApplicationAdapter from './application';
 
-export default LSAdapter.extend({
+export default DS.LSAdapter.extend({
   namespace: "embeddit-reddit"
 });
