@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'embeddit-reddit',
     environment: environment,
     baseURL: '/',
-    locationType: 'none',
+    locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

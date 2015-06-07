@@ -19,6 +19,7 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('bower_components/ember-localstorage-adapter/localstorage_adapter.js')
 app.import('bower_components/snoocore/dist/Snoocore-browser.min.js');
 
 module.exports = app.toTree();

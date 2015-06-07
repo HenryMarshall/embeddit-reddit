@@ -9,13 +9,13 @@
   </p>
 
   <footer>
-    <button class="vote up"></button>
+    <button class="vote up" {{action 'auth'}}></button>
     <span class="score">{{comment.data.score}}</span>
-    <button class="vote down"></button>
-    <button class="reply">Reply</button>
+    <button class="vote down" {{action 'auth'}}></button>
+    <button class="reply" {{action 'auth'}}>Reply</button>
   </footer>
 </div>
 
 {{#if comment.data.replies}}
-  {{sibling-comments comments=comment.data.replies.data.children}}
+  {{sibling-comments comments=comment.data.replies.data.children reddit=reddit accessToken=accessToken}}
 {{/if}}
