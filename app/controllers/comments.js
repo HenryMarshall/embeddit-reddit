@@ -4,7 +4,8 @@ export default Ember.Controller.extend({
 
   params: {
     articleUrl: null,
-    whitelistedSubreddits: ""
+    whitelistedSubreddits: "",
+    activeThreadId: ""
   },
 
   // TODO: These should be proken up into methods.
@@ -35,25 +36,25 @@ export default Ember.Controller.extend({
     }, this);
 
 
-    // Get threads for given url.
-    var url = this.get('params.articleUrl');
-    reddit('api/info').get({ url: url }).then(function(response) {
-      var approvedSubreddits = this.get('params.whitelistedSubreddits').split(' ');
-      var allThreads = response.data.children;
-      // if (approvedSubreddits) {
-      //   // Any thread found on whitelist
-      //   var existingWhitelistedThreads = allThreads.filter(function(thread) {
-      //     return approvedSubreddits.some(function(approvedSubreddit) {
-      //       return (approvedSubreddit === thread.data.subreddit);
-      //     });
-      //   });
-      //   this.set('existingWhitelistedThreads', existingWhitelistedThreads);
-      // }
-      // // In the absense of a whitelist, everything is permitted
-      // else {
-      //   this.set('existingWhitelistedThreads', allThreads);
-      // }
-    });
+    // // Get threads for given url.
+    // var url = this.get('params.articleUrl');
+    // reddit('api/info').get({ url: url }).then(function(response) {
+    //   var approvedSubreddits = this.get('params.whitelistedSubreddits').split(' ');
+    //   var allThreads = response.data.children;
+    //   // if (approvedSubreddits) {
+    //   //   // Any thread found on whitelist
+    //   //   var existingWhitelistedThreads = allThreads.filter(function(thread) {
+    //   //     return approvedSubreddits.some(function(approvedSubreddit) {
+    //   //       return (approvedSubreddit === thread.data.subreddit);
+    //   //     });
+    //   //   });
+    //   //   this.set('existingWhitelistedThreads', existingWhitelistedThreads);
+    //   // }
+    //   // // In the absense of a whitelist, everything is permitted
+    //   // else {
+    //   //   this.set('existingWhitelistedThreads', allThreads);
+    //   // }
+    // });
 
 
     // Set accessToken from local storage
@@ -67,7 +68,9 @@ export default Ember.Controller.extend({
 
 
     // Get comments for given thread
-    reddit('comments/2aa5tl').get().then(function(response) {
+    var activeThreadId = this.get('params.activeThreadId');
+    console.log('activeThreadId: ', activeThreadId);
+    reddit('comments/' + activeThreadId).get().then(function(response) {
       _this.set('topLevelComments', response[1].data.children);
     });
 
