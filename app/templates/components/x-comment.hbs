@@ -12,8 +12,14 @@
     <button class="vote up {{if isUpvoted 'voted'}}" {{action 'vote' comment "1"}}></button>
     <span class="score">{{comment.data.score}}</span>
     <button class="vote down {{if isDownvoted 'voted'}}" {{action 'vote' comment "-1"}}></button>
-    <button class="reply" {{action 'auth'}}>Reply</button>
+    <button class="reply" {{action 'toggleReplyVisible'}}>Reply</button>
   </footer>
+
+  {{#if replyVisible}}
+    {{textarea value=replyText}}
+    <button class="submit" {{action 'submitReply' comment}}>Submit</button>
+  {{/if}}
+
 </div>
 
 {{#if comment.data.replies}}

@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
         type: 'implicit',
         key: '7LY_7ViAfIQNkw',   
         redirectUri: 'http://localhost:4200/auth-callback',
-        scope: [ 'identity', 'read', 'vote' ]
+        scope: [ 'identity', 'read', 'vote', 'submit' ]
       }
     });
     this.set('reddit', reddit);
