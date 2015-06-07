@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
     // We access `access_token` by passing to component, and on
     // didInsertElement bubbling an action back up. Oh dear!
     saveAccessToken: function(accessToken) {
-      this.store.createRecord('auth-callback', {
+      this.store.createRecord('authCallback', {
         accessToken: accessToken
       }).save();
     }

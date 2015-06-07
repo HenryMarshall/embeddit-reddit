@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   init: function() {
+    var _this = this;
 
     var reddit = new window.Snoocore({
       userAgent: '/u/embeddit-reddit embeddit-reddit@0.0.1',   
@@ -15,7 +16,11 @@ export default Ember.Controller.extend({
     });
     this.set('reddit', reddit);
 
-    var _this = this;
+    this.store.find('authCallback').then(function(auth) {
+      var accessToken = auth.get('firstObject').get('accessToken');
+      _this.set('accessToken', accessToken);
+    });
+
     reddit('comments/2aa5tl').get().then(function(response) {
       _this.set('topLevelComments', response[1].data.children);
     });
