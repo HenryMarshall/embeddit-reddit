@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
         type: 'implicit',
         key: '7LY_7ViAfIQNkw',   
         redirectUri: 'http://localhost:4200/auth-callback',
-        scope: [ 'identity', 'read', 'vote' ]
+        scope: [ 'identity', 'read', 'vote', 'submit' ]
       }
     });
     this.set('reddit', reddit);
@@ -69,10 +69,9 @@ export default Ember.Controller.extend({
 
     // Get comments for given thread
     var activeThreadId = this.get('params.activeThreadId');
-    console.log('activeThreadId: ', activeThreadId);
     reddit('comments/' + activeThreadId).get().then(function(response) {
       _this.set('topLevelComments', response[1].data.children);
     });
 
-  },
+  }
 });
