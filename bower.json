@@ -15,5 +15,8 @@
     "snoocore": "~3.0.2",
     "normalize.css": "~3.0.3",
     "bourbon": "~4.2.3"
+  },
+  "devDependencies": {
+    "ember-localstorage-adapter": "0.5.3"
   }
 }
