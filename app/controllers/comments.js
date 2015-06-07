@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
       oauth: {
         type: 'implicit',
         key: '7LY_7ViAfIQNkw',   
-        redirectUri: 'http://localhost:8000/',
+        redirectUri: 'http://localhost:4200/auth-callback',
         scope: [ 'identity', 'read' ]
       }
     });

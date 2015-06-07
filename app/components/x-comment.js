@@ -6,7 +6,9 @@ export default Ember.Component.extend({
 
   actions: {
     auth: function() {
-      window.open("http://google.com/");
+      var reddit = this.get('reddit');
+      var authUrl = reddit.getImplicitAuthUrl();
+      window.open(authUrl);
     }
   }
 });
