@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('comments', { path: '/' });
+  this.route('auth-callback');
 });
 
 export default Router;

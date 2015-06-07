@@ -1,0 +1,27 @@
+<div class="comment-content">
+  <header>
+    <a class="username" href="#">{{comment.data.author}}</a>
+    {{!-- <span class="timestamp">{{comment.data.created_utc}}</span> --}}
+  </header>
+
+  <p class="body">
+    {{comment.data.body}}
+  </p>
+
+  <footer>
+    <button class="vote up {{if isUpvoted 'voted'}}" {{action 'vote' comment "1"}}></button>
+    <span class="score">{{comment.data.score}}</span>
+    <button class="vote down {{if isDownvoted 'voted'}}" {{action 'vote' comment "-1"}}></button>
+    <button class="reply" {{action 'toggleReplyVisible'}}>Reply</button>
+  </footer>
+
+  {{#if replyVisible}}
+    {{textarea value=replyText}}
+    <button class="submit" {{action 'submitReply' comment}}>Submit</button>
+  {{/if}}
+
+</div>
+
+{{#if comment.data.replies}}
+  {{sibling-comments comments=comment.data.replies.data.children reddit=reddit accessToken=accessToken}}
+{{/if}}
