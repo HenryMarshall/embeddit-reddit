@@ -1,7 +1,7 @@
 <div class="comment-content">
   <header>
     <a class="username" href="#">{{comment.data.author}}</a>
-    <span class="timestamp">{{comment.data.created_utc}}</span>
+    {{!-- <span class="timestamp">{{comment.data.created_utc}}</span> --}}
   </header>
 
   <p class="body">
@@ -9,9 +9,9 @@
   </p>
 
   <footer>
-    <button class="vote up" {{action 'auth'}}></button>
+    <button class="vote up" {{action 'vote' comment "1"}}></button>
     <span class="score">{{comment.data.score}}</span>
-    <button class="vote down" {{action 'auth'}}></button>
+    <button class="vote down" {{action 'vote' comment "-1"}}></button>
     <button class="reply" {{action 'auth'}}>Reply</button>
   </footer>
 </div>

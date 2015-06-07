@@ -5,15 +5,18 @@ export default Ember.Component.extend({
   classNames: [ 'comment' ],
 
   actions: {
-    auth: function() {
+    // vote: function(arst, direction) {
+    vote: function(comment, direction) {
       var reddit = this.get('reddit');
-      var accessToken = this.get('accessToken')
+      var accessToken = this.get('accessToken');
       if (accessToken) {
         // If validated, take action
         reddit.auth(accessToken).then(function() {
-          return reddit('/api/v1/me').get();
-        }).then(function(data) {
-          console.log(data);
+
+          return reddit('/api/vote').post({
+            dir: direction,
+            id: comment.kind + '_' + comment.data.id // e.g. t3_345jur
+          });
         });
       }
       else {
