@@ -9,9 +9,9 @@
   </p>
 
   <footer>
-    <button class="vote up" {{action 'vote' comment "1"}}></button>
+    <button class="vote up {{if isUpvoted 'voted'}}" {{action 'vote' comment "1"}}></button>
     <span class="score">{{comment.data.score}}</span>
-    <button class="vote down" {{action 'vote' comment "-1"}}></button>
+    <button class="vote down {{if isDownvoted 'voted'}}" {{action 'vote' comment "-1"}}></button>
     <button class="reply" {{action 'auth'}}>Reply</button>
   </footer>
 </div>

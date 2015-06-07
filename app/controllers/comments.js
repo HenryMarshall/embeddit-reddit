@@ -69,10 +69,9 @@ export default Ember.Controller.extend({
 
     // Get comments for given thread
     var activeThreadId = this.get('params.activeThreadId');
-    console.log('activeThreadId: ', activeThreadId);
     reddit('comments/' + activeThreadId).get().then(function(response) {
       _this.set('topLevelComments', response[1].data.children);
     });
 
-  },
+  }
 });
