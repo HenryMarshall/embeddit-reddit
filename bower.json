@@ -14,9 +14,7 @@
     "qunit": "~1.17.1",
     "snoocore": "~3.0.2",
     "normalize.css": "~3.0.3",
-    "bourbon": "~4.2.3"
-  },
-  "devDependencies": {
+    "bourbon": "~4.2.3",
     "ember-localstorage-adapter": "0.5.3"
   }
 }
